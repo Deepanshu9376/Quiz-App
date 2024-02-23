@@ -105,12 +105,13 @@ body{
     position: absolute;
     top: 25%;
     left: 30%;
-    transform: translate(-10% -10%);
+    transform: translate(-50% -50%);
     width: 500px;
     background: #fff;
     border-radius: 6px;
     padding: 10px 25px;
-    opacity: none;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .popup-info h2{
@@ -138,7 +139,7 @@ body{
 
 .popup-info .btn-grp .info-btn{
     display: inline-flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 130px;
     height: 45px;
@@ -168,3 +169,8 @@ body{
     background: #00008b;
     border-color: #00008b;
 }
+
+.info-btn .continue-btn{
+    text-align: center;
+}
+

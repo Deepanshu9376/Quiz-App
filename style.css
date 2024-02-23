@@ -9,6 +9,7 @@
 
 body{
     color: #fff;
+    background: #09001d;
 }
 
 .header{
@@ -51,6 +52,13 @@ body{
     background: url('bg.jpg') no-repeat;
     background-size: cover;
     background-position: center;
+    pointer-events: auto;
+    transition: .3s ease;
+}
+
+.main.active{
+    filter: blur(15px);
+    pointer-events: none;
 }
 .home{
     height: 100vh;
@@ -105,15 +113,20 @@ body{
     position: absolute;
     top: 25%;
     left: 30%;
-    transform: translate(-50% -50%);
+    transform: translate(-50% -50%) scale(.9);
     width: 500px;
     background: #fff;
     border-radius: 6px;
     padding: 10px 25px;
     opacity: 0;
     pointer-events: none;
+    transition: .3 ease;
 }
-
+.popup-info.active{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50% -50%) scale(1);
+}
 .popup-info h2{
     font-size: 50px;
     color: #00008b;

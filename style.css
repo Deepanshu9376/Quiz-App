@@ -10,6 +10,7 @@
 body{
     color: #fff;
     background: #09001d;
+    overflow: hidden;
 }
 
 .header{
@@ -60,8 +61,16 @@ body{
     filter: blur(15px);
     pointer-events: none;
 }
-.home{
+
+.container{
+    display: flex;
     height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+.home{
+    position: relative;
+    left: -25%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -94,6 +103,7 @@ body{
     height: 55px;
     background: #00008b;
     outline: none;
+    border: 2px solid #fff;
     border-radius: 50px;
     box-shadow: 0 0 10px #00008b;
     color: #fff;
@@ -187,3 +197,29 @@ body{
     text-align: center;
 }
 
+.quiz-section{
+    position: relative;
+    left: -90%;
+    /* left: 0; */
+    width: 100%;
+    background: #0c0c7e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: .3s ease-in-out;
+    transition-delay: .25s;
+}
+
+.quiz-section.active{
+    left: 0;
+    min-width: 100vw;
+}
+
+/* .quiz-section, .quiz-box{
+    /* position: relative; 
+    width: 500px;
+    background: transparent;
+    border: 2px solid #00008b;
+    border-radius: 6px;
+} */

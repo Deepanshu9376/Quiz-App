@@ -224,8 +224,18 @@ body{
     border-radius: 6px;
     flex-direction: column;
     padding: 20px 30px;
-
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.9);
 } 
+
+.quiz-section .Quiz-box.active{
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+    transition: 1s ease;
+    transition-delay: 1s;
+}
 
 .Quiz-box h1{
     font-size: 32px;

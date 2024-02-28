@@ -22,4 +22,18 @@ continuebtn.onclick=()=>{
     popupinfo.classList.remove('active');
     main.classList.remove('active');
     quizBox.classList.add('active')
+
+    showQuestions(0);
+}
+
+let questionCount=0;
+const nextbtn=document.querySelector('.next-btn');
+nextbtn.onclick=()=>{
+    questionCount++;
+    showQuestions(questionCount);
+}
+
+function showQuestions(index){
+    const questionText=document.querySelector('.question-text');
+    questionText.textContent=`${questions[index].numb} ${questions[index].question}`;
 }

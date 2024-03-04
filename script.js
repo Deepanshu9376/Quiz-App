@@ -25,10 +25,12 @@ continuebtn.onclick=()=>{
 
     showQuestions(0);
     questionCounter(1);
+    headerScore();
 }
 
 let questionCount=0;
 let questionNumb=1;
+let userscore=0;
 
 const nextbtn=document.querySelector('.next-btn');
 
@@ -39,6 +41,8 @@ nextbtn.onclick=()=>{
 
         questionNumb++;
         questionCounter(questionNumb);
+
+        nextbtn.classList.remove('active');
     }
     else{
         console.log("questions Completed");
@@ -67,15 +71,36 @@ function showQuestions(index){
 function optionSelected(answer){
     let userAnswer=answer.textContent;
     let correctAnswer=questions[questionCount].answer;
+    let allOptions=optionList.children.length;
 
     if(userAnswer==correctAnswer){
         answer.classList.add('correct');
+        userscore+=1;
+        headerScore();
     }
     else{
         answer.classList.add('incorrect');
+        //if answer is incorrect then mark correct automatically
+        for(let i=0;i<allOptions;i++){
+            if(optionList.children[i].textContent==correctAnswer){
+                optionList.children[i].setAttribute('class','option correct');
+            }
+        }
     }
+    //if all options selected
+    for(let i=0;i<allOptions;i++){
+        optionList.children[i].classList.add('disabled');
+    }
+
+    nextbtn.classList.add('active');
 }
 function questionCounter(index){
     const questionTotal=document.querySelector('.question-total');
     questionTotal.textContent=`${index} of ${questions.length} Questions`;
+}
+
+function headerScore(){
+    const headerScoreText=document.querySelector('.header-score');
+    headerScoreText.textContent=`Score: ${userscore}/${questions.length}`;
+
 }
